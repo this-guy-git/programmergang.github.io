@@ -10,78 +10,332 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://f87.site">
     <style>
-        /* Define the Title font */
-@font-face {
-  font-family: 'Title';
-  src: url('title.ttf') format('truetype');
-}
-
-/* Define the Regular font */
-@font-face {
-  font-family: 'Regular';
-  src: url('normal.otf') format('opentype');
-}
-
-/* Apply the Title font to h2 elements */
-h2 {
-  font-family: 'Title', sans-serif;
-  color: #86D17E;
-}
-
-/* Apply the Regular font to paragraphs */
-p, footer {
-  font-family: 'Regular', sans-serif;
-    color: #AEAEAE;
-}
-
-        footer {
-            margin-top: 20px;
-            font-size: 12px;
-        }
-
-      
-        #section {
-  background-color: #414141; /* Set background color */
-  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5); /* Apply slight black shadow */
-  padding: 20px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-text-align: center;
-            position: relative;
-            background-color: #202020;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e293b 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
         }
-        button {
-            text-align: center;
-            font-family: 'Regular', sans-serif;
-            position: relative;
-			background-color:  #86D17E;
-			font-size: 20px;
-			border-radius: 12px;
-			color: #202020;
-			transition-duration: 0.4s;
-			border: 2px solid #86D17E;
-			cursor: pointer;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-		button:hover {
-			background-color: #414141;
-			color: #AEAEAE;
-			box-shadow: 0 12px 16px 0 #000000, 0 17px 50px 0 #86D17E;
-		}
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            text-align: left;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.03)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            color: #cbd5e1;
+            max-width: 500px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #65a30d, #84cc16);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(101, 163, 13, 0.3);
+            animation: fadeInUp 1s ease-out 0.4s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(101, 163, 13, 0.4);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .section-label {
+            color: #84cc16;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .feature-grid {
+            display: grid;
+            gap: 30px;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            background-size: 30px 30px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .feature-icon.icon-1 {
+            background: linear-gradient(45deg, #3b82f6, #1d4ed8);
+            background-image: url('feature1.png');
+        }
+
+        .feature-icon.icon-2 {
+            background: linear-gradient(45deg, #6366f1, #4f46e5);
+            background-image: url('feature2.png');
+        }
+
+        .feature-icon.icon-3 {
+            background: linear-gradient(45deg, #65a30d, #84cc16);
+            background-image: url('feature3.png');
+        }
+
+        .feature-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .feature-content p {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            padding: 40px 0;
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+
+        .about h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .about p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: #cbd5e1;
+            max-width: 600px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cta-button {
+                padding: 16px 32px;
+                font-size: 1rem;
+            }
+
+            .features, .about {
+                padding: 30px 0;
+            }
+
+            .about h2 {
+                font-size: 2.5rem;
+            }
+
+            .feature-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .feature-icon {
+                align-self: center;
+            }
+        }
+
+        /* Floating Elements */
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-shape.shape-1 {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-shape.shape-2 {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 5%;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
     </style>
 </head>
 <body>
-    <div id="section">
-        <h2>F87</h2>
-        <p>Yo, what's up. This is the official page of discord user F87 (@friendlyspaniard) aka me.</p>
-        <br>
-        <a href="https://mytube.f87.site">
-            <button>MyTube</button>
-        </a>
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Modern<br>Website<br>Design</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <a href="#" class="cta-button">Get Started</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <div class="section-label">ABOUT</div>
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="section-label">FEATURES</div>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon icon-1"></div>
+                    <div class="feature-content">
+                        <h3>Feature One</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon icon-2"></div>
+                    <div class="feature-content">
+                        <h3>Feature Two</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon icon-3"></div>
+                    <div class="feature-content">
+                        <h3>Feature Three</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-    <footer>
-  <p>© 2024. All rights reserved</p>
-  <p>Inspired by 2b2t's site</p>
-    </footer>
 </body>
 </html>
