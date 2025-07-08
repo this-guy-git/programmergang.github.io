@@ -10,6 +10,20 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://f87.site">
     <style>
+        @font-face {
+            font-family: 'Kdam';
+            src: url('Kdam.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'Chakra';
+            src: url('Chakra.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -64,6 +78,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: fadeInUp 1s ease-out;
+            font-family: 'Kdam', cursive;
         }
 
         .hero p {
@@ -125,6 +140,7 @@
             margin-bottom: 30px;
             text-transform: uppercase;
             animation: fadeInUp 1s ease-out 0.6s both;
+            font-family: 'Kdam', cursive;
         }
 
         .feature-grid {
@@ -157,22 +173,25 @@
         }
 
         .feature-icon.icon-1 {
-            background: linear-gradient(45deg, #3b82f6, #1d4ed8);
+            background: 
+                linear-gradient(to right, #84cc16 50%, #dc2626 50%),
+                linear-gradient(to right, #7f1d1d 50%, #16a34a 50%);
+            background-size: 100% 50%;
+            background-position: 0 0, 0 100%;
+            background-repeat: no-repeat;
         }
 
         .feature-icon.icon-2 {
-            background: linear-gradient(45deg, #6366f1, #4f46e5);
+            background: linear-gradient(45deg, #65a30d, #84cc16);
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
         }
 
         .feature-icon.icon-3 {
-            background: linear-gradient(45deg, #65a30d, #84cc16);
-        }
-
-        .feature-icon img {
-            width: 30px;
-            height: 30px;
-            object-fit: contain;
-            filter: brightness(0) invert(1); /* Makes images white */
+            background: linear-gradient(45deg, #6366f1, #4f46e5);
+            font-size: 30px;
+            color: white;
         }
 
         .feature-content h3 {
@@ -180,16 +199,20 @@
             font-weight: 600;
             margin-bottom: 10px;
             color: white;
+            font-family: 'Kdam', cursive;
         }
 
         .feature-content p {
             color: #cbd5e1;
             line-height: 1.6;
             margin-bottom: 15px;
+            font-family: 'Chakra', sans-serif;
         }
 
         .feature-content a {
             margin-top: 15px;
+            display: block;
+            font-family: 'Chakra', sans-serif;
         }
 
         /* About Section */
@@ -203,6 +226,7 @@
             font-weight: 700;
             margin-bottom: 20px;
             color: white;
+            font-family: 'Kdam', cursive;
         }
 
         .about p {
@@ -211,6 +235,7 @@
             color: #cbd5e1;
             max-width: 600px;
             margin-bottom: 0.35rem;
+            font-family: 'Chakra', sans-serif;
         }
 
         /* Animations */
@@ -317,9 +342,7 @@
             <div class="section-label">PROJECTS</div>
             <div class="feature-grid">
                 <div class="feature-item">
-                    <div class="feature-icon icon-1">
-                        <img src="feature1.png" alt="MyTube Icon">
-                    </div>
+                    <div class="feature-icon icon-1"></div>
                     <div class="feature-content">
                         <h3>MyTube</h3>
                         <p>A simple video uploading site written in Python.</p>
@@ -328,22 +351,21 @@
                 </div>
 
                 <div class="feature-item">
-                    <div class="feature-icon icon-2">
-                        <img src="feature2.png" alt="Project Two Icon">
-                    </div>
+                    <div class="feature-icon icon-2">F</div>
                     <div class="feature-content">
-                        <h3>Project Two</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        <h3>FuadeOS</h3>
+                        <p>Python CLI "OS"</p>
+                        <a href="https://github.com/FusionCore-Corp/FuadeOS" class="cta-button">Visit</a>
+                        <a href="https://github.com/FusionCore-Corp/FuadeOS/releases/download/v1.1/FuadeOS-1.1.zip" class="cta-button">Download (latest)</a>
                     </div>
                 </div>
 
                 <div class="feature-item">
-                    <div class="feature-icon icon-3">
-                        <img src="feature3.png" alt="Project Three Icon">
-                    </div>
+                    <div class="feature-icon icon-3">♟</div>
                     <div class="feature-content">
-                        <h3>Project Three</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        <h3>MateInOne</h3>
+                        <p>Chess puzzles site made by me.</p>
+                        <a href="https://f87.site/MateInOne" class="cta-button">Visit</a>
                     </div>
                 </div>
             </div>
